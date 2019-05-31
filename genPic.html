@@ -9,12 +9,12 @@
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-    <div id="capture" style="background: #f5da55; width: 900px; height: 500px; border: 1px solid; padding-left: 200px; box-sizing: border-box;">
-        <div id="pic-content" style="text-align: center; width: 500px; height: 500px; background: #ffffff;vertical-align: middle; vertical-align: middle; display: table-cell">
-        </div>
+    <div id="capture" style="background: #f5da55; width: 270px; height: 150px; padding-left: 60px; box-sizing: border-box;">
+        <div id="pic-content" style="text-align: center; width: 150px; height: 150px; vertical-align: middle; vertical-align: middle; display: table-cell"></div>
     </div>
     <input type="text" id="input-content" />
     <button id = "genBtn">生成图片</button>
+    <div id="pureText"></div>
 
     <script>
         $("#input-content").bind("input propertychange", function() {
@@ -22,12 +22,12 @@
         });
 
         $("#genBtn").click(function() {
-            html2canvas(document.querySelector("#capture")).then(canvas => {
-                document.body.appendChild(canvas)
+            html2canvas(document.querySelector("#capture"))
+            .then(canvas => {
+                $("#pureText").empty();
+                $("#pureText").append(canvas)
             });
         });
-
-        
     </script>
 </body>
 </html>
